@@ -47,9 +47,12 @@ class CountryDetails extends React.Component {
                 <td colspan="2">
                   <ul>
                     {foundCountry.borders.map((x) => {
+                      const findCountry = countries.find((y) => {
+                        return y.cca3 === x;
+                      });
                       return (
                         <li>
-                          <Link to={x}>{x}</Link>
+                          <Link to={x}>{findCountry.name.common}</Link>
                         </li>
                       );
                     })}
